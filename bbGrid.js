@@ -817,7 +817,7 @@ _.extend(bbGrid.FilterView.prototype, Backbone.View.prototype, {
         var options = {}, self = this, filterBar, filterBarHtml;
         _.each(this.view.colModel, function (col) {
             if (col.filter) {
-                options[col.name] = _.uniq(self.view.collection.pluck(col.filterColName || col.name));
+                options[col.name] = _.uniq(self.view.collection.pluck(col.filterColName || col.name)).sort();
             }
         });
         filterBar = _.template(
